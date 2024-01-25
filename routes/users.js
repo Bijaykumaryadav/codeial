@@ -1,13 +1,21 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const usersController = require('../controllers/users_controller');
+const Passport = require("passport");
+
+const usersController = require("../controllers/users_controller");
 
 // Corrected route for the "profile" endpoint
-router.get('/profile', usersController.user_profile);
+router.get("/profile", usersController.user_profile);
 
-router.get('/sign_up',usersController.signUp);
-router.get('/sign_in',usersController.signin);
+router.get("/sign_up", usersController.signUp);
+router.get("/sign_in", usersController.signin);
 
-router.post('/create',usersController.create);
+router.post("/create", usersController.create);
+//use passport as a middleware to authenticate
+router.post(
+  "/create-session",
+  Passport.authenticate("local", { failureRedirect: "/users/sign_in" }),
+  usersController.createSession
+);
 
 module.exports = router;
