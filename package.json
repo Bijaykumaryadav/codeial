@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "compile-scss": "sass src/styles.scss dist/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bijay Kumar Yadav",
   "license": "ISC",
   "dependencies": {
+    "@npmcli/fs": "^3.1.0",
+    "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
@@ -17,6 +20,10 @@
     "express-session": "^1.17.3",
     "mongoose": "^8.1.0",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sass-middleware": "^0.0.3"
+  },
+  "devDependencies": {
+    "sass": "^1.70.0"
   }
 }
